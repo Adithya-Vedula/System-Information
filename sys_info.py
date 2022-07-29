@@ -1,5 +1,4 @@
 import socket
-# from pyautogui import size
 from sys import platform as name
 import platform
 import psutil
