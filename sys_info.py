@@ -1,5 +1,6 @@
 import socket
 from sys import platform as name
+from screeninfo import get_monitors
 import platform
 import psutil
 uname = platform.uname()
@@ -73,13 +74,15 @@ physical_cores = psutil.cpu_count(logical = False)
 total_cores = psutil.cpu_count(logical = True)
 if name == 'win32':
     print(windows)
+
 if name == 'darwin':
     print(apple)
 if name == 'linux' or name == 'linux2':
     print(linux)      
-    
+print("--" * 30)    
 print(f'Hostname - {hostname}')
 print(f'IP Address - {ip_address}')
+print("--" * 30)
 print(f'OS Info -  {os_info}')
 print(f'Ram - {ram} GigaBytes')
 print(f'Architecture - {architect}')
@@ -87,7 +90,13 @@ print(f'Processor - {processor}')
 print(f'Release - {release}')
 print(f'Version - {version}')
 print(f'Machine - {machine}')
+print("--" * 30)
 print(f'Frequency - {cpufreq}')
 print(f'Physical Cores - {physical_cores}')
 print(f'Total Cores - {total_cores}')
+print("--" * 30)
+print("Monitors")
+print()
+for index,m in enumerate(get_monitors()):
+    print(f'{index+1} - {m}')
       
